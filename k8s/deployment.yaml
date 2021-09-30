@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conversao-temperatura-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: conversao-temperatura
+  template:
+    metadata:
+      labels:
+        app: conversao-temperatura
+    spec:
+      containers:
+      - name: conversao-temperatura
+        image: ohsouza/conversao-temperatura:v1.0
+        ports:
+        - containerPort: 8080       
